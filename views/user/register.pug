@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+ form(method="POST")
+  label(for="username") Username:
+  input(type="text" id="username" name="username")
+  label(for="password") Password:
+  input(type="password" id="password" name="password") 
+  label(for="firstName") First Name:
+  input(type="text" id="firstName" name="firstName")
+  label(for="lastName") Last Name:
+  input(type="text" id="lastName" name="lastName")
+  input(type="submit" value="Register")

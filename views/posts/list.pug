@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  section.posts-holder
+    each post in posts
+     a.single-post(href=`/post/${post._id}/${post.title}`)
+      h2.post-title= post.title
+      p.post-author by 
+       i= post.author.username
+      p.post-body= post.body
+      p.post-date= dateFormat(post.date,'d/M/Y at h:m')
+     .post-info 
+       if !currentUser || currentUser.likedPosts.indexOf(post._id)===-1
+        a(href=`/post/${post._id}/${post.title}/like`) 
+         i.fa.fa-thumbs-o-up(aria-hidden="true")
+        span.post-likes='Likes: '+ post.likes+" "
+       else
+        a(href=`/post/${post._id}/${post.title}/dislike`) 
+         i.fa.fa-thumbs-o-down(aria-hidden="true")
+        i.fa.fa-thumbs-up(aria-hidden="true")  
+        span.post-likes='Likes: '+ post.likes+" "
+       .info-delimeter
+       i.fa.fa-eye(aria-hidden="true")= "  "
+       span.post-views= 'Views:'+post.views+" "
+  .pages-holder
+   while n<=pages
+    a.page(href=`/list?page=${n}`)= n++

@@ -1,0 +1,141 @@
+html{
+    font-family: sans-serif;
+    font-size: 1.2em;
+    background: #13171a;
+    color:white;
+}
+h1{
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+form{
+    width:30%;
+    display: flex;
+    flex-flow: column;
+    margin:40px auto;
+}
+input{
+    margin:10px 0;
+    height:20px;
+    border-radius: 15px;
+    padding-left: 10px;
+}
+
+input[type="submit"]{
+    width:30%;
+    align-self: center;
+}
+
+
+
+/*---------------------
+    HEADER SECTION
+-----------------------*/
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+nav ul{
+    display: flex;
+}
+nav li {
+    list-style: none;
+    padding:0 20px;
+}
+
+
+/*---------------------
+    POSTS SECTION
+-----------------------*/
+.single-post-holder>h1{
+    text-align: left;
+}
+.post-title{
+    margin:5px 0;
+}
+.single-post{
+    display: block;
+    padding:10px;
+    border:2px solid transparent;
+    width:60%;
+} 
+.single-post:hover{
+    border-color:#c0c0c0
+}
+.post-body{
+    padding:20px 10px;
+    border:3px solid #408080;
+    color:black;
+    background: white;
+    border-radius: 0 15px 0 15px;
+}
+
+.single-date{
+    float:right;
+}
+
+/*---------------------
+    ANSWER SECTION
+-----------------------*/ 
+.answer-form{
+    margin:0;
+}
+
+.answers-holder>h2{
+    text-align: center;
+}
+
+/*---------------------
+    FRONT PAGE
+-----------------------*/ 
+.post-info{
+    width:60%;
+    font-size:0.8em;
+}
+.posts-holder-front .post-info{
+    margin:0 auto;
+}
+.posts-holder-front>.single-post{
+    margin:auto;
+}
+
+.info-delimeter{
+    width:6%;
+}
+
+.fa{
+    margin:0 5px;
+}
+
+.post-info{
+    display:flex;
+}
+
+/*---------------------
+    LIST PAGE
+-----------------------*/ 
+
+.page{
+    padding:5px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    background:lightgreen;
+    color:black;
+    margin:0 2px;
+    display:block;
+}
+.pages-holder{
+    display: flex;
+    justify-content: center;
+}
+/*---------------------
+    FOOTER SECTION
+-----------------------*/ 
+
+footer{
+    text-align: center;
+}

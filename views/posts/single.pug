@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+ section.single-post-holder
+   h1.single-title= post.title
+   p.single-author='by ' + post.author.username
+   p.single-body= post.body
+   .post-info
+     if !currentUser || currentUser.likedPosts.indexOf(post._id)===-1
+      a(href=`/post/${post._id}/${post.title}/like`) 
+       i.fa.fa-thumbs-o-up(aria-hidden="true")
+      span.post-likes='Likes: '+ post.likes+" "
+     else
+      a(href=`/post/${post._id}/${post.title}/dislike`) 
+       i.fa.fa-thumbs-o-down(aria-hidden="true")
+      i.fa.fa-thumbs-up(aria-hidden="true")  
+      span.post-likes='Likes: '+ post.likes+" "
+     .info-delimeter
+     i.fa.fa-eye(aria-hidden="true")= "  "
+     span.post-views= 'Views:'+post.views+" "
+   hr
+ section.answers-holder
+   if post.answers.length===0
+    h1 No answers yet
+   else
+    h2 Answers:
+    each answer in post.answers
+     .single-answer
+      p.answer-body= answer.body
+      p.answer-info
+       span.answer-author="by "+answer.author.username+" "
+       span.answer-date= dateFormat(answer.date,'on d/M/Y at h:m')
+   hr
+ if currentUser
+  form.answer-form(method="POST")
+   label(for="answerBody") Answer this thread:
+   textarea(type="text" id="answerBody" name="body" rows="7")
+   input(type="submit" value="Add answer")

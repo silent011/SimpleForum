@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Forum
+    link(rel="stylesheet",href="/styles/style.css")
+    link(rel="stylesheet",type="text/css",href="/styles/font-awesome.min.css")
+body
+
+    header
+        nav
+            ul.left-nav
+              li
+               a(href="/") Home
+              li
+               a(href="/list") All Posts
+              if currentUser
+                li
+                 a(href="/add") Add Post        
+                if currentUser.roles.indexOf('Admin')>-1
+                 li
+                  a(href="/category/add") Add Category  
+            ul.right-nav
+                if currentUser
+                    li= currentUser.username
+                    li
+                        a(href="/user/logout") Log out
+                else  
+                    li
+                        a(href="/user/login") Login
+                    li
+                        a(href="/user/register") Register
+             
+    if globalError
+     h2.error= globalError
+    main
+     block content
+    footer &copy; Forum, 2017
